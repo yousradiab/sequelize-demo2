@@ -129,24 +129,6 @@ app.get("/orders", async (req, res) => {
 
     //res.json(dto);
 
-    // create a DTO
-    // const dto = orders.map((order) => {
-    //   return {
-    //     orderNumber: order.orderNumber,
-    //     orderItems: order.OrderItems.map((orderItem) => {
-    //       return {
-    //         quantity: orderItem.quantity,
-    //         product: {
-    //           productName: orderItem.Product.productName,
-    //           price: orderItem.Product.price,
-    //         },
-    //       };
-    //     }),
-    //   };
-    // });
-
-    //res.json(dto);
-
     res.json(orders);
   } catch (error) {
     console.error("Error fetching orders:", error);
