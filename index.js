@@ -47,7 +47,7 @@ OrderItem.belongsTo(Product);
 // Sync the models with the database
 async function syncDatabase() {
   try {
-    await sequelize.sync({ force: true }); // Use { force: true } to recreate tables on every app start
+    await sequelize.sync({ alter: true }); // Use { force: true } to recreate tables on every app start
     console.log("Database synchronized");
   } catch (error) {
     console.error("Error syncing database:", error);
@@ -95,7 +95,7 @@ async function createSampleData() {
 // Middleware for syncing the database and running example functions
 app.use(async (req, res, next) => {
   await syncDatabase();
-  await createSampleData();
+  //await createSampleData();
   next();
 });
 
@@ -111,6 +111,24 @@ app.get("/orders", async (req, res) => {
         },
       ],
     });
+
+    // create a DTO
+    // const dto = orders.map((order) => {
+    //   return {
+    //     orderNumber: order.orderNumber,
+    //     orderItems: order.OrderItems.map((orderItem) => {
+    //       return {
+    //         quantity: orderItem.quantity,
+    //         product: {
+    //           productName: orderItem.Product.productName,
+    //           price: orderItem.Product.price,
+    //         },
+    //       };
+    //     }),
+    //   };
+    // });
+
+    //res.json(dto);
 
     res.json(orders);
   } catch (error) {
