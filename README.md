@@ -27,3 +27,29 @@ npm start
 This will create the tables and populates them with the sample data.
 
 in the browser, you can go to localhost:3000/orders to see the data
+
+you should see something like this:
+```json
+[
+  {
+  "id": 1,
+  "orderNumber": "ORD123",
+  "createdAt": "2023-11-16T08:33:20.000Z",
+  "updatedAt": "2023-11-16T08:33:20.000Z",
+  "OrderItems": [
+    {
+    "id": 1,
+    "quantity": 2,
+    "createdAt": "2023-11-16T08:33:20.000Z",
+    "updatedAt": "2023-11-16T08:33:20.000Z",
+    "OrderId": 1,
+    "ProductId": 1,
+    "Product": {
+      "id": 1,
+      "productName": "Product A",
+      "price": "19.99",
+      "createdAt": "2023-11-16T08:33:20.000Z",
+      "updatedAt": "2023-11-16T08:33:20.000Z"
+    }
+},
+```
