@@ -5,7 +5,7 @@ const app = express();
 const PORT = 3000;
 
 // Create a Sequelize instance
-const sequelize = new Sequelize("database2", "root", "123456", {
+const sequelize = new Sequelize("database2", "root", "youssi96", {
   host: "localhost",
   dialect: "mysql",
 });
@@ -111,6 +111,23 @@ app.get("/orders", async (req, res) => {
         },
       ],
     });
+    // create a DTO
+    // const dto = orders.map((order) => {
+    //   return {
+    //     orderNumber: order.orderNumber,
+    //     orderItems: order.OrderItems.map((orderItem) => {
+    //       return {
+    //         quantity: orderItem.quantity,
+    //         product: {
+    //           productName: orderItem.Product.productName,
+    //           price: orderItem.Product.price,
+    //         },
+    //       };
+    //     }),
+    //   };
+    // });
+
+    //res.json(dto);
 
     res.json(orders);
   } catch (error) {
